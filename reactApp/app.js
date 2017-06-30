@@ -2,8 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const dummyData = ['washing dishes', 'go party', 'be cool', 'July 4th be crazy']
-//==================== TodoList ========================
 
+//==================== InputLine ============================
+
+class InputLine extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render(){
+    return (
+        <form>
+          <input type='task' placeholder='task'></input>
+          <input type='submit' value='Add todo'></input>
+        </form>
+    )
+  }
+}
+
+
+//==================== Todo ============================
 
 class Todo extends React.Component {
   constructor(props) {
@@ -15,6 +32,8 @@ class Todo extends React.Component {
     )
   }
 }
+
+//==================== TodoList ========================
 
 
 class TodoList extends React.Component {
@@ -31,4 +50,20 @@ class TodoList extends React.Component {
   }
 }
 
-ReactDOM.render(<TodoList />, document.getElementById('root'));
+//==================== TodoApp ==========================
+
+class TodoApp extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render(){
+    return (
+      <div>
+      <InputLine />
+      <TodoList />
+    </div>
+    )
+  }
+}
+
+ReactDOM.render(<TodoApp />, document.getElementById('root'));
