@@ -6,16 +6,29 @@ import ReactDOM from 'react-dom';
 class InputLine extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      typedText: ''
+    }
   }
-  click(e) {
-    e.preventDefault();
-    this.props.submit("test task")
+
+  handleTyping(event) {
+    this.setState({typedText: event.target.value});
   }
+
+  handleSubmit(){
+    this.props.submit(this.state.typedText);
+    this.setState({typedText: ''})
+  }
+
+  // click(e) {
+  //   e.preventDefault();
+  //   this.props.submit("test task")
+  // }
   render(){
     return (
         <form>
-          <input type='task' placeholder='task'></input>
-          <input onClick={(e) => this.click(e)} type='submit' value='Add todo'></input>
+          <input onChange={(event) => this.handleTyping(event)} type='text' value={this.state.typedText} placeholder='task'></input>
+          <input onClick={() => this.handleSubmit()} type='submit' value='Add todo'></input>
         </form>
     )
   }
