@@ -20,11 +20,7 @@ class TodoApp extends React.Component {
   }
 
   toggle(index){
-    if(dummyData[index].completed){
-      dummyData[index].completed = false;
-    } else {
-      dummyData[index].completed = true;
-    }
+    dummyData[index].completed =! dummyData[index].completed;
     this.setState({todos: dummyData});
   }
 
