@@ -13,9 +13,9 @@ class Todo extends React.Component {
     return (
       <div>
         {(state) ? (
-          <li className='onGoing'><button>X</button>{this.props.task.taskText}</li>)
+          <li className='striked'><button onClick={this.props.xClick}>X</button><strike>{this.props.task.taskText}</strike></li>)
         : (
-          <li className='striked'><button>X</button><strike>{this.props.task.taskText}</strike></li>
+          <li className='onGoing'><button onClick={this.props.xClick}>X</button>{this.props.task.taskText}</li>
         )}
       </div>
     )

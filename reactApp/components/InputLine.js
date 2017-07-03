@@ -15,7 +15,8 @@ class InputLine extends React.Component {
     this.setState({typedText: event.target.value});
   }
 
-  handleSubmit(){
+  handleSubmit(event){
+    event.preventDefault();
     this.props.submit(this.state.typedText);
     this.setState({typedText: ''})
   }
@@ -24,11 +25,12 @@ class InputLine extends React.Component {
   //   e.preventDefault();
   //   this.props.submit("test task")
   // }
+
   render(){
     return (
         <form>
           <input onChange={(event) => this.handleTyping(event)} type='text' value={this.state.typedText} placeholder='task'></input>
-          <input onClick={() => this.handleSubmit()} type='submit' value='Add todo'></input>
+          <input onClick={(event) => this.handleSubmit(event)} type='submit' value='Add todo'></input>
         </form>
     )
   }
