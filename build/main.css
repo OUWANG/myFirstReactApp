@@ -5,3 +5,7 @@
 .onGoing {
   background-color: lightgreen
 }
+
+.toggle {
+  float: right;
+}
